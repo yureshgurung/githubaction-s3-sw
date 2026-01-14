@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>IT Student Portfolio — Your Name</title>
+    <meta name="description" content="Portfolio of an IT student: projects, skills, contact." />
+    <style>
+        :root {
+            --bg: #f6f7fb;
+            --card: #fff;
+            --text: #0f1720;
+            --muted: #475569;
+            --accent: #0ea5a4;
+            --border: rgba(0, 0, 0, 0.06);
+            --input-border: rgba(0, 0, 0, 0.08);
+            --chip-bg: rgba(10, 10, 10, 0.04);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0b1220;
+            --card: #071024;
+            --text: #e6eef6;
+            --muted: #9fb0c7;
+            --accent: #2dd4bf;
+            --border: rgba(255, 255, 255, 0.06);
+            --input-border: rgba(255, 255, 255, 0.06);
+            --chip-bg: rgba(255, 255, 255, 0.03);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            transition: background-color .25s ease, color .25s ease;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 28px auto;
+            padding: 24px
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent), #60a5fa);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700
+        }
+
+        nav {
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        a.button {
+            background: var(--accent);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600
+        }
+
+        main {
+            margin-top: 20px
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 20px;
+            background: var(--card);
+            border-radius: 12px
+        }
+
+        .hero .intro {
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.6rem
+        }
+
+        p.lead {
+            margin: 0;
+            color: var(--muted)
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 18px
+        }
+
+        section.card {
+            background: var(--card);
+            padding: 16px;
+            border-radius: 10px
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px
+        }
+
+        .chip {
+            background: var(--chip-bg);
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-weight: 600;
+            color: var(--muted)
+        }
+
+        .projects .project {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.01))
+        }
+
+        /* smooth transitions for theme changes */
+        section.card,
+        .theme-toggle,
+        a.button {
+            transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+        }
+
+        footer {
+            margin-top: 22px;
+            text-align: center;
+            color: var(--muted)
+        }
+
+        /* responsive */
+        @media(min-width:900px) {
+            .hero {
+                grid-template-columns: 1fr 320px
+            }
+
+            .grid {
+                grid-template-columns: 2fr 1fr
+            }
+        }
+
+        /* small touches */
+        .muted {
+            color: var(--muted)
+        }
+
+        .small {
+            font-size: 0.9rem
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid var(--input-border);
+            background: transparent;
+            color: var(--text)
+        }
+
+        .contact-form button {
+            margin-top: 8px
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--border);
+            padding: 6px;
+            border-radius: 8px;
+            cursor: pointer;
+            color: var(--text);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="page">
+        <header>
+            <div class="brand">
+                <div class="avatar">YG</div>
+                <div>
+                    <div style="font-weight:700">yuresh gurung</div>
+                    <div class="small muted">computer enggineer student · Devsecops · AI/ML · Problem Solver</div>
+                </div>
+            </div>
+            <nav>
+                <a class="small muted" href="#about">About</a>
+                <a class="small muted" href="#projects">Projects</a>
+                <a class="small muted" href="#contact">Contact</a>
+                <a class="button" href="#" onclick="alert('loding');return false">Download CV</a>
+                <button class="theme-toggle" id="themeToggle" aria-pressed="false" title="Toggle theme">Dark</button>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero" aria-labelledby="intro-title">
+                <div class="intro">
+                    <h1 id="intro-title">Hi — I'm yuresh gurung</h1>
+                    <p class="lead">I am yuresh gurung , a final-year Computer Engineering student interested in Cloud
+                        Computing,
+                        AI/ML, and DevOps. I am currently working on a Crop Recommendation System using Machine Learning
+                        and IoT. I enjoy learning new technologies, solving real-world problems, and building
+                        intelligent systems.
+                        I build practical projects that solve problems and improve workflows.</p>
+                    <div class="actions">
+                        <a class="button" href="#projects">View Projects</a>
+                        <a class="small muted" href="#contact">Get in touch</a>
+                    </div>
+                    <div style="margin-top:12px">
+                        <strong>Location:</strong> chitwan,nepal· <strong>Email:</strong> <a
+                            href="mailto:you@example.com">yureshgurung@gmail.com</a>
+                    </div>
+                </div>
+                <aside>
+                    <section class="card small">
+                        <h3 style="margin-top:0">Quick Facts</h3>
+                        <p class="muted small">Current: Bachelor's in computer engineer — expected 2026</p>
+                        <div style="margin-top:8px">
+                            <div class="small muted">Skills</div>
+                            <div class="skills" style="margin-top:8px">
+                                <span class="chip">Python</span>
+                                <span class="chip">JavaScript</span>
+                                <span class="chip">AWS</span>
+                                <span class="chip">Git</span>
+                                <span class="chip">Docker</span>
+                            </div>
+                        </div>
+                    </section>
+                </aside>
+            </section>
+
+            <div class="grid">
+                <section id="projects" class="card projects">
+                    <h2 style="margin-top:0">Selected Projects</h2>
+                    <div class="project">
+                        <h3 style="margin:0">GitHub Action: S3 Deployment</h3>
+                        <p class="muted small">Automated deployment pipeline that uploads build artifacts to Amazon S3
+                            using GitHub Actions.</p>
+                        <p class="small">Tech: GitHub Actions · AWS S3 · Bash · YAML</p>
+                        <p><a href="#" class="small">Repository</a> · <a href="#" class="small">Live demo</a></p>
+                    </div>
+                    <div style="height:12px"></div>
+                    <div class="project">
+                        <h3 style="margin:0">Student Portal Dashboard</h3>
+                        <p class="muted small">A responsive dashboard to manage student tasks, notes, and schedules.</p>
+                        <p class="small">Tech: React · Node.js · Express · MongoDB</p>
+                    </div>
+                </section>
+
+                <aside class="card">
+                    <h3 style="margin-top:0">Experience & Education</h3>
+                    <p class="muted small"><strong>Intern</strong> — Company Name (Summer 2025)</p>
+                    <p class="muted small">Worked on cloud automation and CI/CD improvements.</p>
+                    <hr />
+                    <p class="muted small"><strong>BSc IT</strong> — University Name (2022 — Present)</p>
+                </aside>
+            </div>
+
+            <section id="about" class="card" style="margin-top:16px">
+                <h2 style="margin-top:0">About Me</h2>
+                <p class="small muted">I'm an IT student who enjoys building reliable systems, learning cloud-native
+                    patterns, and automating repetitive tasks. I contribute to open source and maintain small personal
+                    projects demonstrating CI/CD, observability, and infra-as-code.</p>
+            </section>
+
+            <section id="contact" class="card contact-form" style="margin-top:16px">
+                <h2 style="margin-top:0">Contact</h2>
+                <p class="muted small">Want to collaborate or have a question? Send a quick message.</p>
+                <form onsubmit="alert('This is a demo form — replace with your backend or mailto.');return false">
+                    <label class="small">Name</label>
+                    <input type="text" name="name" placeholder="Your name" required />
+                    <label class="small" style="margin-top:8px">Email</label>
+                    <input type="email" name="email" placeholder="you@example.com" required />
+                    <label class="small" style="margin-top:8px">Message</label>
+                    <textarea name="message" rows="4" placeholder="Brief message" required></textarea>
+                    <button class="button" type="submit">Send Message</button>
+                </form>
+            </section>
+
+            <footer>
+                <p class="small muted">© <span id="year"></span> Your Name — Built with ❤️ · <a href="#">Privacy</a></p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        (function () {
+            // set year
+            document.getElementById('year').textContent = new Date().getFullYear();
+            // theme toggle with Dark/Light labels and persistence
+            const root = document.documentElement;
+            const toggle = document.getElementById('themeToggle');
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            function applyTheme(theme) {
+                if (theme === 'dark') {
+                    root.setAttribute('data-theme', 'dark');
+                    toggle.textContent = 'Light';
+                    toggle.setAttribute('aria-pressed', 'true');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    root.removeAttribute('data-theme');
+                    toggle.textContent = 'Dark';
+                    toggle.setAttribute('aria-pressed', 'false');
+                    localStorage.setItem('theme', 'light');
+                }
+            }
+            // initialize theme: saved preference > system preference > light
+            const initial = saved ? saved : (prefersDark ? 'dark' : 'light');
+            applyTheme(initial);
+            // listen for toggle clicks
+            toggle.addEventListener('click', function () {
+                const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+                const next = current === 'dark' ? 'light' : 'dark';
+                applyTheme(next);
+            });
+            // keep in sync if system preference changes and user has not explicitly chosen (optional)
+            window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                const stored = localStorage.getItem('theme');
+                if (!stored) applyTheme(e.matches ? 'dark' : 'light');
+            });
+        })();
+    </script>
+</body>
+
+</html>
